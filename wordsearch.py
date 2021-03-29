@@ -37,3 +37,23 @@ def cache_grid(grid):
 			char_positions.append((x,y))
 	
 	return cache
+	
+def check_for_word(grid, word, start, direction):
+	y, x = start
+	move_y, move_x = direction
+	coords = []
+	grid_limit = len(grid)
+	
+	for letter in word:
+		#if current position is in bounds and letter is a match
+		if(x >= 0 and y >= 0 and x < grid_limit and y < grid_limit and grid[y][x] == letter):
+			coords.append((x,y))
+		else:
+			return (False, [])
+		
+		x += move_x
+		y += move_y
+	
+	return (True, coords)
+		
+		
