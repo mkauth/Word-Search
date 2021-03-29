@@ -75,3 +75,18 @@ def find_word(word, grid, cache):
 				found, coords = check_for_word(grid, word, start, direction)
 				if found:
 					return coords
+					
+
+def find_words(words, grid):
+	cache = cache_grid(grid)
+	result = []
+	
+	for word in words:
+		coords = find_word(word, grid, cache)
+		coords_string = ",".join("(%s,%s)" %tup for tup in coords)
+		word_location = word + ": " + coords_string
+		result.append(word_location)
+	
+	return result
+	
+	

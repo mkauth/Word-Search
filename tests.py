@@ -195,5 +195,19 @@ class WordSearchTestCase(unittest.TestCase):
 		
 		self.assertEqual(coords, expected_coords)
 		
+	def test_find_all_words(self):
+		expected_result = [
+			"BEAR: (3,3),(2,3),(1,3),(0,3)",
+			"CAT: (4,1),(4,2),(4,3)",
+			"DOG: (3,0),(2,1),(1,2)",
+			"WOLF: (0,4),(1,4),(2,4),(3,4)"
+		]
+		test_words = ["BEAR", "CAT", "DOG", "WOLF"]
+		
+		result = search.find_words(test_words, self.test_grid)
+		
+		self.assertEqual(result, expected_result)
+		
+		
 if __name__ == '__main__':
 	unittest.main()
