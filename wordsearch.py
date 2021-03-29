@@ -26,3 +26,14 @@ def load_grid(filename):
 		
 	file.close()
 	return words, grid
+	
+
+def cache_grid(grid):
+	cache = {}
+	
+	for x,row in enumerate(grid):
+		for y, column in enumerate(row):
+			char_positions = cache.setdefault(column, [])
+			char_positions.append((x,y))
+	
+	return cache
