@@ -17,8 +17,7 @@ To run the program, use the following command in the console while inside the pr
 
 
 
-To run the tests, use the following command in the console while inside the project directory.:
+To run the tests, use the following command in the console while inside the project directory:
 
 	python tests.py
 	
-in the console while inside the project directory.
