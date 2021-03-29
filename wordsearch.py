@@ -55,5 +55,23 @@ def check_for_word(grid, word, start, direction):
 		y += move_y
 	
 	return (True, coords)
+	
 		
+def find_word(word, grid, cache):
+		directions = [
+			(-1,-1), #up left
+			(-1,0), #up
+			(-1,1), #up right
+			(0,1), #right
+			(1,1), #down right
+			(1,0), #down
+			(1,-1), #down left
+			(0,-1) #left
+		]
 		
+		starting_coords = cache[word[0]]
+		for start in starting_coords:
+			for direction in directions:
+				found, coords = check_for_word(grid, word, start, direction)
+				if found:
+					return coords

@@ -11,15 +11,8 @@ class WordSearchTestCase(unittest.TestCase):
 			['R','A','E','B','T'],
 			['W','O','L','F','N']
 		]
-	
-	def test_load_grid_from_file(self):
-		words, grid = search.load_grid("testwordsearch.txt")
-		self.assertEqual(words, ['BEAR','CAT','DOG','WOLF'])
-		self.assertEqual(grid, self.test_grid)
 		
-		
-	def test_cache_grid(self):
-		expected_cache = {
+		self.test_cache = {
 			'A': [(0,4),(2,4),(3,1)],
 			'B': [(3,3)],
 			'C': [(1,4)],
@@ -37,8 +30,18 @@ class WordSearchTestCase(unittest.TestCase):
 			'T': [(1,0),(3,4)],
 			'W': [(2,0),(4,0)]
 		}
+	
+	def test_load_grid_from_file(self):
+		words, grid = search.load_grid("testwordsearch.txt")
+		
+		self.assertEqual(words, ['BEAR','CAT','DOG','WOLF'])
+		self.assertEqual(grid, self.test_grid)
+		
+		
+	def test_cache_grid(self):
 		cache = search.cache_grid(self.test_grid)
-		self.assertEqual(cache, expected_cache)
+		
+		self.assertEqual(cache, self.test_cache)
 		
 		
 	def test_check_direction_for_word_up_left_found(self):
@@ -185,6 +188,12 @@ class WordSearchTestCase(unittest.TestCase):
 		self.assertFalse(found)
 		self.assertEqual(coords, expected_coords)
 		
-	
+	def test_find_word(self):
+		expected_coords = [(3,3),(2,3),(1,3),(0,3)]
+
+		coords = search.find_word("BEAR", self.test_grid, self.test_cache)
+		
+		self.assertEqual(coords, expected_coords)
+		
 if __name__ == '__main__':
 	unittest.main()
