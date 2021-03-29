@@ -1,0 +1,6 @@
+BEAR,CAT,DOG,WOLF
+E,O,H,D,A
+T,H,O,M,C
+W,G,Q,H,A
+R,A,E,B,T
+W,O,L,F,N
