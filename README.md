@@ -11,14 +11,13 @@ Please DO NOT make any changes to testwordsearch.txt. This is used for the tests
 
 
 
-To run the program, use the command:
+To run the program, use the following command in the console while inside the project directory:
 
 	python wordsearch.py
 
-in the console while inside the project directory.
 
 
-To run the tests, use the command:
+To run the tests, use the following command in the console while inside the project directory.:
 
 	python tests.py
 	
